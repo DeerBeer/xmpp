@@ -20,6 +20,9 @@
 	     meta = #{} :: map()}).
 -type iq() :: #iq{}.
 
+-record(message_format, {format = [] :: [#text{}]}).
+-type message_format() :: #message_format{}.
+
 -record(message, {id = <<>> :: binary(),
                   type = normal :: message_type(),
                   lang = <<>> :: binary(),
@@ -27,6 +30,7 @@
                   to :: undefined | jid:jid(),
                   subject = [] :: [#text{}],
                   body = [] :: [#text{}],
+                  message_format =[] :: message_format(),
                   thread :: undefined | binary(),
                   sub_els = [] :: [xmpp_element() | fxml:xmlel()],
 		  meta = #{} :: map()}).
